@@ -31,7 +31,11 @@ public class Controller extends Main{
         String uName =tfName.getText();
         String uID = tfClientID.getText();
 
-        String sql = "INSERT INTO client(CLIENTID,FIRSTNAME) VALUES ('"+uID+"','"+uName+"')";
+        StringBuilder  sb = new StringBuilder("INSERT INTO client(CLIENTID,FIRSTNAME)");
+
+        sb.append("VALUES ('").append(uID).append("','").append(uName).append("')");
+
+        String sql = sb.toString();
 
         if(!uName.equals("[A-Za-z]") && (uID.length() != 8) ){
 
@@ -48,7 +52,6 @@ public class Controller extends Main{
             JOptionPane.showMessageDialog(null,"Record saved");
 
         }
-
 
 
     }
